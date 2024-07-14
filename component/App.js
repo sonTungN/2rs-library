@@ -1,5 +1,5 @@
-import html from "../core.js";
 import { connect } from "../store.js";
+import html from "../core.js";
 
 const connector = connect();
 
@@ -8,6 +8,8 @@ function App({ cars }) {
     <ul>
       ${cars.map((car) => `<li>${car}</li>`)}
     </ul>
+
+    <button onclick="dispatch('Add', 'Porsche')">Add car</button>
   `;
 }
 
