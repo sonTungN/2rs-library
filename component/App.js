@@ -3,14 +3,8 @@ import html from "../core.js";
 
 const connector = connect();
 
-function App({ cars }) {
-  return html`
-    <ul>
-      ${cars.map((car) => `<li>${car}</li>`)}
-    </ul>
-
-    <button onclick="dispatch('Add', 'Porsche')">Add car</button>
-  `;
+function App() {
+  return html` <h1>Hello World</h1> `;
 }
 
 export default connector(App);
