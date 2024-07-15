@@ -1,4 +1,4 @@
-import html from "../core.js";
+import html from "../library/core.js";
 
 function Header() {
   return html`

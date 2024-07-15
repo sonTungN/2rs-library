@@ -1,6 +1,6 @@
-import html from "../core.js";
+import html from "../library/core.js";
 import TodoItem from "./TodoItem.js";
-import { connect } from "../store.js";
+import { connect } from "../library/store.js";
 
 const connector = connect();
 
