@@ -1,10 +1,15 @@
 import html from "../core.js";
 
-function TodoItem({ todo }) {
+function TodoItem({ todo, index }) {
   return html`
     <li class="${todo.completed && "completed"}">
       <div class="view">
-        <input ${todo.completed && "checked"} class="toggle" type="checkbox" />
+        <input
+          ${todo.completed && "checked"}
+          class="toggle"
+          type="checkbox"
+          onchange="dispatch('Toggle', ${index})"
+        />
         <label>${todo.title}</label>
         <button class="destroy"></button>
       </div>

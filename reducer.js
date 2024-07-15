@@ -6,7 +6,15 @@ const init = {
 
 const actions = {
   Add({ todos }, title) {
-    todos.push({ title, completed: false });
+    if (title) {
+      todos.push({ title, completed: false });
+      storage.set(todos);
+    }
+  },
+
+  Toggle({ todos }, index) {
+    const todo = todos[index];
+    todo.completed = !todo.completed;
     storage.set(todos);
   },
 };
