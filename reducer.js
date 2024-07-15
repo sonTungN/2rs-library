@@ -34,6 +34,15 @@ const actions = {
     todos.splice(index, 1);
     storage.set(todos);
   },
+
+  SwitchFilter(state, currentFilter) {
+    state.filter = currentFilter;
+  },
+
+  ClearCompleted(state) {
+    state.todos = state.todos.filter(state.filters.active);
+    storage.set(state.todos);
+  },
 };
 
 export default function reducer(state = init, action, args) {
