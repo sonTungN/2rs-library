@@ -1,10 +1,12 @@
-import { connect } from "../store.js";
 import html from "../core.js";
-
-const connector = connect();
+import Header from "./Header.js";
+import TodoList from "./TodoList.js";
+import Footer from "./Footer.js";
 
 function App() {
-  return html` <h1>Hello World</h1> `;
+  return html`
+    <section class="todoapp">${Header()} ${TodoList()} ${Footer()}</section>
+  `;
 }
 
-export default connector(App);
+export default App;
