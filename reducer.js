@@ -17,6 +17,12 @@ const actions = {
     todo.completed = !todo.completed;
     storage.set(todos);
   },
+
+  ToggleAll({ todos }, completed) {
+    console.log(completed);
+    todos.forEach((todo) => (todo.completed = completed));
+    storage.set(todos);
+  },
 };
 
 export default function reducer(state = init, action, args) {
