@@ -29,6 +29,11 @@ const actions = {
     todos.forEach((todo) => (todo.completed = completed));
     storage.set(todos);
   },
+
+  Destroy({ todos }, index) {
+    todos.splice(index, 1);
+    storage.set(todos);
+  },
 };
 
 export default function reducer(state = init, action, args) {
