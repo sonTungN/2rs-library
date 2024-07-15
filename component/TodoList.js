@@ -1,16 +1,19 @@
 import html from "../core.js";
 import TodoItem from "./TodoItem.js";
+import { connect } from "../store.js";
 
-function TodoList() {
+const connector = connect();
+
+function TodoList({ todos }) {
   return html`
     <section class="main">
       <input class="toggle-all" id="toggle-all" type="checkbox" />
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
-        ${TodoItem()} ${TodoItem()} ${TodoItem()}
+        ${todos.map((todo) => TodoItem({ todo }))}
       </ul>
     </section>
   `;
 }
 
-export default TodoList;
+export default connector(TodoList);
