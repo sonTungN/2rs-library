@@ -4,10 +4,16 @@ import { connect } from "../store.js";
 
 const connector = connect();
 
-function TodoList({ todos }) {
+function TodoList({ todos, filters }) {
   return html`
     <section class="main">
-      <input class="toggle-all" id="toggle-all" type="checkbox" />
+      <input
+        class="toggle-all"
+        id="toggle-all"
+        type="checkbox"
+        onchange="dispatch('ToggleAll', checked)"
+        ${todos.every(filters.completed) && "checked"}
+      />
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
         ${todos.map((todo, index) => TodoItem({ todo, index }))}

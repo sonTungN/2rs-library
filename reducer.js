@@ -2,6 +2,12 @@ import storage from "./util/storage.js";
 
 const init = {
   todos: storage.get(),
+  filter: "all",
+  filters: {
+    all: () => true,
+    active: (todo) => !todo.completed,
+    completed: (todo) => todo.completed,
+  },
 };
 
 const actions = {
